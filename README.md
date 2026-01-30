@@ -27,11 +27,62 @@
 4.  **카테고리 분류**: 난이도별 또는 테마별(명사, 동사, 숙어 등) 단어 분류
 5.  **다크 모드**: 사용자 눈의 피로도를 고려한 테마 전환 기능
 
-## 🛠 실행 및 빌드
-```bash
-# 개발 서버 실행
-npm run dev
 
-# 프로덕션 빌드
-npm run build
+
+## 💻 개발 가이드 (Developer Guide)
+
+
+
+### 단어 데이터 추가 방법
+
+`src/data/words.js` 파일에서 `vocabulary` 배열에 객체를 추가하면 자동으로 화면에 반영됩니다.
+
+
+
+```javascript
+
+// src/data/words.js 예시
+
+export const vocabulary = [
+
+  // ... 기존 단어들
+
+  { 
+
+    id: 31, // 고유한 숫자 ID (순차적으로 증가)
+
+    word: 'new word', // 영어 단어
+
+    pronunciation: '/pronunciation/', // 발음기호
+
+    meaning: '새로운 단어', // 한글 뜻
+
+    exampleEn: 'This is a new word example.', // 영어 예문
+
+    exampleKo: '이것은 새로운 단어 예문입니다.' // 예문 해석
+
+  }
+
+];
+
+```
+
+
+
+### 스타일 수정 (Tailwind CSS)
+
+- 전체 테마 색상은 `src/index.css` 또는 `tailwind.config.js`에서 관리하지 않고, Tailwind 유틸리티 클래스(예: `bg-blue-600`)를 `src/App.jsx`에서 직접 사용했습니다.
+
+- 주요 색상 변경을 원하시면 `App.jsx` 내의 `bg-blue-*`, `text-blue-*` 등의 클래스를 일괄 변경하세요.
+
+
+
+### 프로젝트 초기화
+
+프로젝트 학습 기록을 완전히 삭제하고 싶다면 브라우저 콘솔에서 다음을 실행하거나, 화면 상단의 '초기화' 버튼을 사용하세요.
+
+```javascript
+
+localStorage.clear();
+
 ```
